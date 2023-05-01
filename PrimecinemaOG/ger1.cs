@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.DataFormats;
+using static PrimecinemaOG.Form6;
 namespace Gerencia
 {
     public partial class ger1 : Form
@@ -18,13 +19,14 @@ namespace Gerencia
         {
             InitializeComponent();
         }
-        public string[] sucursales = { "Galerias", "La Gran via", "Multiplaza", "MetroCentro", "Plaza Mundo", "Plaza Merliot", "Plaza Futura", "Antiguo Cuscatlan", "Soyapango", "Cabañas" };
-        public string[] sucursalSeleccionada = new string[10];
+        public string[] sucursales { get; set; } = { "Galerias", "La Gran via", "Multiplaza", "MetroCentro", "Plaza Mundo", "Plaza Merliot", "Plaza Futura", "Antiguo Cuscatlan", "Soyapango", "Cabañas" };
+        public string[] sucursalSeleccionada { get; set; } = new string[10];
         public string sucursal;
-        public string[] S_Nombre = new string[10];
-        public string[] N_Gerente = new string[10];
-        public string[] S_Sucursal = new string[10];
-        public string[] S_Direccion = new string[10];
+        public string[] S_Nombre { get; set; } = new string[10];
+        public string[] N_Gerente { get; set; } = new string[10];
+        public string[] S_Sucursal { get; set; } = new string[10];
+        public string[] S_Direccion { get; set; } = new string[10];
+        public string[] NumeroSalas { get; set; } = new string[10];
         private void Form1_Load(object sender, EventArgs e)
         {
             textBox3.MaxLength = 8;
@@ -86,7 +88,7 @@ namespace Gerencia
 
         private void btn_reg_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text) || string.IsNullOrEmpty(textBox4.Text))
+            if (string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text) || string.IsNullOrEmpty(textBox4.Text) || string.IsNullOrEmpty(N_Salas.Text))
             {
                 MessageBox.Show("NO SE PUEDE DEJAR EL CAMPO VACIO", "ERROR");
             }
@@ -97,10 +99,11 @@ namespace Gerencia
                     N_Gerente[i] = textBox2.Text;
                     S_Sucursal[i] = textBox3.Text;
                     S_Direccion[i] = textBox4.Text;
+                    NumeroSalas[i] = N_Salas.Text;
                     break;
                 }
                 MessageBox.Show("Datos Registrados Exitosamente");
-                Cartelera frmb = new Cartelera();
+                PrimecinemaOG.Form6 frmb = new PrimecinemaOG.Form6();
                 frmb.Show();
                 this.Hide();
             }
@@ -120,5 +123,23 @@ namespace Gerencia
                 sucursalSeleccionada[f] = sucursal;
             }
         }
+
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void N_Salas_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

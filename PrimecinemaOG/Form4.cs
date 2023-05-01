@@ -26,7 +26,6 @@ namespace PrimecinemaOG
             using (Font font = new Font("Arial", 22.0f))
             {
                 lbl_sucursal.Font = font;
-                lbl_pelis.Font = font;
             }
 
             foreach (string sucursal in sucursales)
@@ -97,4 +96,6 @@ namespace PrimecinemaOG
             frm1.Close();
         }
     }
+
 }
+

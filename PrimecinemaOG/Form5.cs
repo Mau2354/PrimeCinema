@@ -18,7 +18,7 @@ namespace PrimecinemaOG
         private string[] formatos = { "Tradicional", "3D" };
         private string formatoSeleccionado;
         private double precioBoleto;
-        private double totalVenta;
+        public double totalVenta;
         private int cantidadBoletos;
         public double precioBarbi1 = 0;
         public double precioBarbi2 = 0;
@@ -88,12 +88,6 @@ namespace PrimecinemaOG
 
         private void Compra_bolet_Load(object sender, EventArgs e)
         {
-            using (Font font = new Font("Arial", 22.0f))
-            {
-                label1.Font = font;
-                label2.Font = font;
-            }
-
             foreach (string formato in formatos)
             {
                 cb_formato.Items.Add(formato);
@@ -193,14 +187,12 @@ namespace PrimecinemaOG
             {
                 precioRPF = 0;
             }
+            MessageBox.Show("gracias por lacompra de $" + Math.Round(totalVenta,2) + ", seleccione sus asientos porfavor");
             this.Hide();
             butac asiento = new butac();
             asiento.Show();
         }
-    
-    
-        
-
+ 
         private void chk_barbi1_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -230,5 +222,11 @@ namespace PrimecinemaOG
         {
 
         }
+
+        private void btn_siguiente_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+ 

@@ -16,6 +16,7 @@ namespace PrimecinemaOG
         public string[] DUIs = new string[10];
         public string[] Direcciones = new string[10];
         public string[] Telefonos = new string[10];
+
         public inicio_ses()
         {
             InitializeComponent();
@@ -88,7 +89,77 @@ namespace PrimecinemaOG
         {
 
         }
-    }
 
+        private void btn_salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_iniciar_ses_Click_1(object sender, EventArgs e)
+        {
+            bool credencialesValidas = false;
+
+            if (txtb_correo1.Text == CorreoGerente && txtb_contra.Text == ContraGerente)
+            {
+                ger1 frm3 = new ger1();
+                frm3.Show();
+                this.Hide();
+            }
+            else if (string.IsNullOrEmpty(txtb_correo1.Text) || string.IsNullOrEmpty(txtb_contra.Text))
+            {
+                MessageBox.Show("NO SE PUEDE DEJAR EL CAMPO VACIO", "ERROR");
+            }
+            else
+            {
+                for (int i = 0; i < Contraseñas.Length; i++)
+                {
+                    if (Contraseñas[i] == txtb_contra.Text && correos[i] == txtb_correo1.Text)
+                    {
+                        Cartelera frm4 = new Cartelera();
+                        frm4.Show();
+                        this.Hide();
+                        credencialesValidas = true;
+                        break;
+                    }
+                }
+
+                if (!credencialesValidas)
+                {
+                    MessageBox.Show("CORREO O CONTRASEÑA INCORRECTA", "ERROR");
+                }
+            }
+
+        }
+
+        private void btn_registro_Click_1(object sender, EventArgs e)
+        {
+            Registro frm2 = new Registro();
+            frm2.Show();
+        }
+
+        private void lbl_inicio_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void inicio_ses_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
+    }
 }
+
+
 

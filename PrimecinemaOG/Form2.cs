@@ -30,9 +30,6 @@ namespace PrimecinemaOG
             txtb_contra.UseSystemPasswordChar = !checkBox1.Checked;
         }
 
-
-
-
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -89,7 +86,7 @@ namespace PrimecinemaOG
                             frm1.Direcciones[f] = txtb_direccion.Text;
                             frm1.DUIs[f] = txtb_dui.Text;
                             frm1.Telefonos[f] = txtb_tel.Text;
-                            break; // Salir del bucle una vez que se ha agregado la nueva entrada
+                            break;
                         }
                     }
                     this.Close();
